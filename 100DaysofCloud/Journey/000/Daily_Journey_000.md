@@ -82,7 +82,7 @@ https://hackernoon.com/adding-realtime-data-streaming-to-your-app-b9b6ec034afd
 
 ### Step 11 - Finally, create your database.
 
-1[Step 11](https://github.com/RightHandCloud77/AWS-Cloud-Journey/blob/main/Notes/Project%20Screenshots/%23DBS-AWS100/Step%2011.png?raw=true)
+![Step 11](https://github.com/RightHandCloud77/AWS-Cloud-Journey/blob/main/Notes/Project%20Screenshots/%23DBS-AWS100/Step%2011.png?raw=true)
 
 ### Step 12 - It takes about 15-20 minutes for your database to become available. Be patiet! Go sweat some of your parlays or something 🤑
 
