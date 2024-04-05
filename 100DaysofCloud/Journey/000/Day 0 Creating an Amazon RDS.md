@@ -116,11 +116,11 @@ https://hackernoon.com/adding-realtime-data-streaming-to-your-app-b9b6ec034afd
 
 - Prizepicks is obviously run on a more sophisticated cloud model than this (Example of a sports betting app cloud below). However, at a simplified core, their data is used to make odds, show bettors previous game statistics, and send out "deals" to end users via a powerful EC2 Instance. With that being said, the data(stats) have to be stored in a relational database that can be housed in a way that relates to other pieces of data, that provides high availability as well as low latency. Which goes back to Justin Baker's article about data streaming 📲
 
-### In the intimidating diagram below, focus on #3 and #7. For the sake of your sanity & mine, we'll keep it at those two for now 😂
+- In the intimidating diagram below, focus on #3 and #7. For the sake of your sanity & mine, we'll keep it at those two for now 😂
 
-# 3: Amazon Managed Streaming for Apache Kafka is used to build real-time streaming data pipelines between services, applications, and data layers.
+- 3: Amazon Managed Streaming for Apache Kafka is used to build real-time streaming data pipelines between services, applications, and data layers.
 
-# 7: The Amazon RDS (Similar to what I set up in this project) stores platform data and historical transactions while providing resiliency, redundancy, & quick failover.
+- 7: The Amazon RDS (Similar to what I set up in this project) stores platform data and historical transactions while providing resiliency, redundancy, & quick failover.
 
 ![Sports Betting Cloud Model from AWS](https://docs.aws.amazon.com/images/architecture-diagrams/latest/sports-betting-architecture/images/2-deployment-of-player-related-components-outside-of-aws.png)
 
