@@ -4,7 +4,7 @@ Create DB Instance (MS SQL Server)
 
 ## Introduction
 
-I chose to do this cloud today after studying & going over some RDS Practice Questions for the Cloud Practictioner Course. I created a similar databse on the CloudQuest Game using MariaDB engine. So I figured I'd start Day 0 Here! 🚀
+I chose to do this project today after studying & going over some RDS Practice Questions for the Cloud Practitioner Course. I created a similar database on the CloudQuest Game using MariaDB engine. So I figured I'd start Day 0 Here! 🚀
 
 ## Prerequisite
 
@@ -16,21 +16,23 @@ Amazon RDS: is a service that lets you run relational databases in the cloud �
 
 - I want most of my examples on this 100 day journey to be sport based... There aren't too many guys breaking this stuff down to where sport lovers like myself can understand!
 
-- With the uproar in sports betting in the past couple years I'm going to use PrizePicks as an example. PrizePicks obviously maintains a boatload of sports data (stats, game scores, team performance). This data changes by the second each day. The PrizePicks app needs a reliable and scalable database solution to store and manage the large volume of game data generated during the sporting event 🏀🏈⚾⚽🏆
+- With the uproar in sports betting in the past couple years, I'm going to use PrizePicks as an example. PrizePicks obviously maintains a boatload of sports data (stats, game scores, team performance). This data changes by the second each day. The PrizePicks app needs a reliable and scalable database solution to store and manage the large volume of game data generated during the sporting event 🏀🏈⚾⚽🏆
 
 ## Cloud Research
 
-- Justin Baker gives a great perspective on Adding Real-Time Data into applications. He also gives specific companies that thrive in "real-time" services. Going up the technology ladder in the PrizePicks reference, the stats are pushed out from servers that are designed to seamlessly push out data to bettors end devices. Go up one or two more rungs and I'm sure you'll find a Relational Database thats storing this game data daily. Link below (about a 5 min read) 🧠
+- Justin Baker gives a great perspective on Adding Real-Time Data into applications. He also gives specific companies that thrive in "real-time" services. Going up the technology ladder in the PrizePicks reference, the stats are disseminated from servers that are designed to seamlessly distribute data to bettors end devices. Go up one or two more rungs and I'm sure you'll find a Relational Database thats storing this game data daily. Link below (about a 5 min read) 🧠
 
 https://hackernoon.com/adding-realtime-data-streaming-to-your-app-b9b6ec034afd
 
-- (Trial & Error) After geting my cloud RDS all setup. I thought I would be able to connect to it using the endpoint address located in teh connectivity & security tab. I had to navigate https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToMicrosoftSQLServerInstance.html to figure out how exactly to connect to a Database using the credentials that I assigned while creating the DB. Maybe there is a way to access via a webportal but as of now my steps are in the "## ☁️ Cloud Outcome" section below.
+## Trial and Error
+
+- After getting my cloud RDS provisioned, I thought I would be able to connect to it using the endpoint address located in the connectivity & security tab. I had to navigate https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToMicrosoftSQLServerInstance.html to determine how to establish a database connection using the credentials that I assigned while creating the DB. Maybe there is a way to access via a webportal but as of now my steps are in the "☁️ Cloud Outcome" section below.
 
 - After about an hour of  trying to connect using the SSMS (SQL Server Management Studio) and looking over the subnets. I verified that I had the proper gateway set up to allow incoming traffic, and still couldn't connect.🤔 
 
 ![This is the error that I kept getting](https://github.com/RightHandCloud77/AWS-Cloud-Journey/blob/main/Notes/Project%20Screenshots/%23DBS-AWS100/Step%2016.png?raw=true)
 
-- After about another 15 mins of shooting and missing, I decided to check the security groups. And realized my public IP wasn't added on the list to allow traffic in, only "all traffic from within the VPC (Virtual Private Cloud)💡
+- After about another 15 mins of shooting and missing, I decided to check the security groups. And realized my public IP wasn't added on the list to allow traffic into the private subnet that housed the DB, only "all traffic from within the VPC (Virtual Private Cloud)💡
 
 ## Tutorial
 
@@ -84,7 +86,7 @@ https://hackernoon.com/adding-realtime-data-streaming-to-your-app-b9b6ec034afd
 
 ![Step 11](https://github.com/RightHandCloud77/AWS-Cloud-Journey/blob/main/Notes/Project%20Screenshots/%23DBS-AWS100/Step%2011.png?raw=true)
 
-### Step 12 - It takes about 15-20 minutes for your database to become available. Be patiet! Go sweat some of your parlays or something 🤑
+### Step 12 - It takes about 15-20 minutes for your database to become available. Be patient! Go sweat some of your parlays or something 🤑
 
 ![Step 12](https://github.com/RightHandCloud77/AWS-Cloud-Journey/blob/main/Notes/Project%20Screenshots/%23DBS-AWS100/Step%2012.png?raw=true)
 
@@ -112,9 +114,17 @@ https://hackernoon.com/adding-realtime-data-streaming-to-your-app-b9b6ec034afd
 
 ## ☁️ Cloud Outcome
 
-- Prizepicks is obviously ran on a more sophistocated cloud model than this. However, at a simplified core, their data is used to make odds, show bettors previous game statistics, and send out "deals" to end users via a powerful EC2 Instance. With that being said, the data(stats) have to be stored in a relational database that can be housed in a way that relates to other pieces of data, that provides high availability as well as low latency. Which goes back to Justin Baker's article about data streaming 📲
+- Prizepicks is obviously run on a more sophisticated cloud model than this (Example of a sports betting app cloud below). However, at a simplified core, their data is used to make odds, show bettors previous game statistics, and send out "deals" to end users via a powerful EC2 Instance. With that being said, the data(stats) have to be stored in a relational database that can be housed in a way that relates to other pieces of data, that provides high availability as well as low latency. Which goes back to Justin Baker's article about data streaming 📲
 
-- Configuring an RDS Instance to pair with an EC2 was my first official project done outside of Amazon CloudQuest. Without any guide to immediately tell me where I went wrong definately prolonged the process on the backend but thats where I was able to learn about some of the default security group settings of the Database. Specifically, if you don't "allow" the public address to connect to the DB instance from outside of the VPC, it won't connect!
+### In the intimidating diagram below, focus on #3 and #7. For the sake of your sanity & mine, we'll keep it at those two for now 😂
+
+# 3: Amazon Managed Streaming for Apache Kafka is used to build real-time streaming data pipelines between services, applications, and data layers.
+
+# 7: The Amazon RDS (Similar to what I set up in this project) stores platform data and historical transactions while providing resiliency, redundancy, & quick failover.
+
+![Sports Betting Cloud Model from AWS](https://docs.aws.amazon.com/images/architecture-diagrams/latest/sports-betting-architecture/images/2-deployment-of-player-related-components-outside-of-aws.png)
+
+- Configuring an RDS Instance to pair with an EC2 was my first official project done outside of Amazon CloudQuest. Without any guide to immediately tell me where I went wrong definitely prolonged the process on the backend, but thats where I was able to learn about some of the default security group settings of the Database. Specifically, if you don't "allow" the public address to connect to the DB instance from outside of the VPC, it won't connect!
 
 
 
@@ -122,6 +132,6 @@ https://hackernoon.com/adding-realtime-data-streaming-to-your-app-b9b6ec034afd
 
 - This project gave me a couple ideas for my next stage. 
 
-- Keeping it down to the basics to prevent from getting ahead of myself, I want to explore setting up a scalable EC2 instance from scratch that has a couple different functionalities. Maybe look into the cloud scructure of some of these sport analytics, or betting apps 👨🏾‍🔧
+- Keeping it down to the basics to prevent from getting ahead of myself, I want to explore setting up a scalable EC2 instance from scratch that has a couple different functionalities. Maybe look into the cloud structure of some of these sport analytics, or betting apps 👨🏾‍🔧
 
-- Or exploring into a security project (Due to getting caught up on the "Security Group" portion of this project), maybe setting up an secure cloud to hold some of the said instances above with multiple security practices inside 🔒
+- Or exploring into a security project (Due to getting caught up on the "Security Group" portion of this project), maybe setting up a secure cloud to hold some of the said instances above with multiple security practices inside 🔒
