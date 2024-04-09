@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Building upon insights gained from my previous project documented on GitHub (https://github.com/RightHandCloud77/AWS-Cloud-Journey/blob/main/100DaysofCloud/Journey/000/Day%200%20Creating%20an%20Amazon%20RDS.md), where I outlined the "Next Steps," In this article, we explore the impact of cloud computing on the future of sports, focusing on the role of Amazon EC2 instances in powering sports data analytics websites and applications.
+Building upon insights gained from my previous project documented on [GitHub](https://github.com/RightHandCloud77/AWS-Cloud-Journey/blob/main/100DaysofCloud/Journey/000/Day%200%20Creating%20an%20Amazon%20RDS.md), where I outlined the "Next Steps," In this article, we explore the impact of cloud computing on the future of sports, focusing on the role of Amazon EC2 instances in powering sports data analytics websites and applications.
 
 ## Prerequisite 👣
 
